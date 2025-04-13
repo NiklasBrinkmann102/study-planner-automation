@@ -14,30 +14,25 @@ def homepage():
     
 
     st.title("📚 Prüfungsplaner")
-    st.subheader("Dein optimaler Lernplan für maximalen Erfolg")
+    st.write(f"#### Dein optimaler Lernplan für maximalen Erfolg")
     
     # Main info section - explaining the why
     st.header("Warum du einen Lernplan brauchst")
 
-
-    why_cols = st.columns(3)
-    with why_cols[0]:
-        container = st.container(border=True)
-        with container:
-        
+    container = st.container(border=True)
+    with container:
+        why_cols = st.columns(3)
+        with why_cols[0]:
+            
             st.container().subheader("⏱️ Zeitmangel")
             st.container().write("Strukturierte Vorbereitung verhindert Last-Minute-Panik und sichert ausreichend Zeit für alle Themen.")
-        
-        with why_cols[1]:
-            container = st.container(border=True)
-            with container:
+            
+            with why_cols[1]:
                 st.container().subheader("🧠 Vergessenskurve")
                 st.container().write("Regelmäßige Wiederholungen sorgen für langfristiges Behalten statt schnellem Vergessen.")
-        
-        with why_cols[2]:
-            container = st.container(border=True)
-            with container:
-                st.container().subheader("📊 Priorisierung")
+            
+            with why_cols[2]:
+                st.container().subheader("📊 Struktur")
                 st.container().write("Fokus auf wichtige und schwierige Themen statt ineffizientes Lernen nach Gefühl.")
     
     # Video section with explanation
@@ -47,7 +42,7 @@ def homepage():
         video_cols = st.columns([2, 3])
         
         with video_cols[0]:
-            st.image("figures/Studyplaner_Flow.png")
+            st.image("figures/Studyplaner_Workflow.png")
             # st.video("https://www.youtube.com/watch?v=AbRlFdrz09s")
         
         with video_cols[1]:
@@ -105,5 +100,18 @@ def homepage():
             st.subheader("📤 Export-Funktion")
             st.write("Lernplan direkt in deinen digitalen Kalender importieren")
 
+
+
+
+    with st.sidebar:
+        social_media_links = [
+            "https://www.youtube.com/@NiklasBrinkmann1",
+            "https://www.linkedin.com/in/brinkmann-niklas/",
+            "https://www.niklasbrinkmann.de",
+        ]
+        social_media_icons = SocialMediaIcons(social_media_links)
+        social_media_icons.render()
+
 if __name__ == "__main__":
     homepage()
+
