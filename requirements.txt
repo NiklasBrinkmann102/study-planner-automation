@@ -3,4 +3,3 @@ pandas==1.5.3
 numpy>=1.25.0
 matplotlib==3.6.3
 pytz==2024.2
-
