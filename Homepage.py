@@ -6,7 +6,7 @@ from st_social_media_links import SocialMediaIcons
 def homepage():
     # Page configuration
     st.set_page_config(
-        page_title="Prüfungsplaner | Lerne effizienter",
+        page_title="Prüfungsplaner | Lerne effizienter  sdfsd",
         page_icon="📚",
         layout="wide"
     )

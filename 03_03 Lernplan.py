@@ -6,7 +6,7 @@ from datetime import datetime
 import pytz
 import matplotlib.pyplot as plt
 from io import BytesIO
-from pyxlsb import open_workbook as open_xlsb
+# from pyxlsb import open_workbook as open_xlsb
 from my_func_V2 import *
 from datetime import datetime, timedelta
 import re
@@ -657,18 +657,6 @@ with tab3:
         href = f'<a href="data:text/calendar;charset=utf-8;base64,{b64}" download="{file_name}" class="button">Kalenderdatei (.ics) herunterladen</a>'
         return href
 
-    def to_excel(df):
-        """Konvertiert DataFrame zu Excel-Bytes"""
-        output = BytesIO()
-        writer = pd.ExcelWriter(output, engine='xlsxwriter')
-        df.to_excel(writer, index=False, sheet_name='Lernplan')
-        workbook = writer.book
-        worksheet = writer.sheets['Lernplan']
-        format1 = workbook.add_format({'num_format': '0.00'}) 
-        worksheet.set_column('A:A', None, format1)  
-        writer.save()
-        processed_data = output.getvalue()
-        return processed_data
 
     # Streamlit App Layout
     st.title("Export vom Lernplan")
@@ -725,8 +713,7 @@ with tab3:
         - **Outlook**: Datei → Öffnen & Exportieren → Importieren/Exportieren
         """)
 
-    # Excel-Export vorbereiten
-    df_xlsx = to_excel(df_studyplan_clean)
+
 
     st.divider()
 
@@ -735,8 +722,7 @@ with tab3:
     col1, col2 = st.columns([1, 5])
     col1.download_button(
         label='📥 Lernplan als Excel herunterladen',
-        data=df_xlsx,
-        file_name='Lernplan.xlsx'
+        data=df_studyplan_clean.to_excel(index=False, sheet_name='Lernplan')
     )
     col2.info("""
         Du kannst deinen individuell erstellten Lernplan hier als Excel-Datei herunterladen.
