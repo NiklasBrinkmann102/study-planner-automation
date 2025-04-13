@@ -3,6 +3,4 @@ pandas==1.5.3
 numpy>=1.25.0
 matplotlib==3.6.3
 pytz==2024.2
-st-social-media-links==0.1.5
-git+https://github.com/im-pertinax/streamlit-calendar.git
 
