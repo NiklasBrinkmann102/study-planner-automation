@@ -7,7 +7,7 @@ import pytz
 import matplotlib.pyplot as plt
 from io import BytesIO
 #from pyxlsb import open_workbook as open_xlsb
-from my_func_V2 import *
+from my_func import *
 from datetime import datetime, timedelta
 import re
 import uuid
@@ -728,7 +728,7 @@ with tab3:
     # # Excel-Export vorbereiten
 
     # st.divider()
-    
+
     # # Excel-Export Sektion
     # st.subheader("Excel (.xlsx)")
     # col1, col2 = st.columns([1, 5])
