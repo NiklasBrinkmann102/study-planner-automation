@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import streamlit.components.v1 as components
+from streamlit_calendar import calendar
 # from st_social_media_links import SocialMediaIcons
 
 def homepage():
