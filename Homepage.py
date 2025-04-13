@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import streamlit.components.v1 as components
 from streamlit_calendar import calendar
-# from st_social_media_links import SocialMediaIcons
+from st_social_media_links import SocialMediaIcons
 
 def homepage():
     # Page configuration
@@ -150,14 +150,14 @@ def homepage():
         ]
 
 
-    # with st.sidebar:
-    #     social_media_links = [
-    #         "https://www.youtube.com/@NiklasBrinkmann1",
-    #         "https://www.linkedin.com/in/brinkmann-niklas/",
-    #         "https://www.niklasbrinkmann.de"
-    #     ]
-    #     social_media_icons = SocialMediaIcons(social_media_links)
-    #     social_media_icons.render()
+    with st.sidebar:
+        social_media_links = [
+            "https://www.youtube.com/@NiklasBrinkmann1",
+            "https://www.linkedin.com/in/brinkmann-niklas/",
+            "https://www.niklasbrinkmann.de"
+        ]
+        social_media_icons = SocialMediaIcons(social_media_links)
+        social_media_icons.render()
 
 
 
