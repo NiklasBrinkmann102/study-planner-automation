@@ -1,5 +1,5 @@
-streamlit
-pandas==1.5.3
+streamlit==1.44.1
+pandas==2.1.4
 matplotlib==3.6.3
 pytz==2024.2
 st-social-media-links==0.1.1
