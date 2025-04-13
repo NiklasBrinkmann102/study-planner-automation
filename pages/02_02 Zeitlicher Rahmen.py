@@ -28,6 +28,8 @@ if "learning_type" not in st.session_state:
 if 'daily_repeat_time' not in st.session_state:
     st.session_state.daily_repeat_time = 30
 
+if "df_exam" not in st.session_state:
+    st.info('Bitte Prüfungstermine eintragen, bevor du fortfährst.')
 
 # Callback-Funktionen
 def update_selected_days():

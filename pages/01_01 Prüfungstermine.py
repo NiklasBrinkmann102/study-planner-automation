@@ -169,6 +169,8 @@ with st.form("subject_form"):
 
 st.session_state.df_exam = pd.DataFrame(st.session_state.subject_data)
 
+
+
 # Show success message after form submission
 if st.session_state.get('form_submitted', False):
     st.success("Alle Fächer wurden erfolgreich gespeichert!")
@@ -182,6 +184,15 @@ if st.session_state.get('form_submitted', False):
 if st.session_state.subject_data:
     df_exam = pd.DataFrame(st.session_state.subject_data)
     df_exam['Lernstart'] = df_exam.apply(berechne_lernstart, axis=1)
+
+with st.expander("Hinweise & Erklärungen"):
+    st.write('''
+        Hier kannst du bis zu 10 Prüfungen eintragen. Beachte dabei:
+        - **Kategorie**: Bestimmt die Lernmethode. Für "Sprache" und "Anki" werden tägliche Wiederholungen eingeplant. Falls du eine der beiden Kategorien auswählst, wird die tägliche Wiederholzeit in Minuten auf der nächsten Seite abgefragt.
+        - **Prüfungsdatum**: Das Datum der jeweiligen Prüfung.
+        - **Schwierigkeit**: Beeinflusst die relative Lernzeit (Schwer = 100%, Anspruchsvoll = 90%, Mittel = 80%, Leicht = 70%).
+        - **Start**: Zeitpunkt, ab dem du mit der Prüfungsvorbereitung beginnen möchtest.
+    ''')
 
 with st.sidebar:
     social_media_links = [
