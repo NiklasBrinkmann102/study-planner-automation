@@ -42,7 +42,7 @@ def homepage():
         video_cols = st.columns([2, 3])
         
         with video_cols[0]:
-            st.image("figures/Studyplaner_Workflow.png")
+            st.image("Image_Workflow.png")
             # st.video("https://www.youtube.com/watch?v=AbRlFdrz09s")
         
         with video_cols[1]:
@@ -53,50 +53,40 @@ def homepage():
             steps_container.write("2️⃣ Lernpräferenzen festlegen")
             steps_container.write("3️⃣ Personalisierten Plan erhalten")
             
-            st.button("Jetzt starten", type="primary", use_container_width=True)
+            # st.button("Jetzt starten", type="primary", use_container_width=True)
         
 
     st.header("Funktionen des Prüfungsplaners")
+    container = st.container(border=True)
+    with container:
 
-    # Display features in 2x3 grid
-    feature_cols1 = st.columns(3)
-    feature_cols2 = st.columns(3)
+        # Display features in 2x3 grid
+        feature_cols1 = st.columns(3)
+        feature_cols2 = st.columns(3)
 
-    # Erste Zeile mit Features
-    with feature_cols1[0]:
-        container = st.container(border=True)
-        with container:
+        # Erste Zeile mit Features
+        with feature_cols1[0]:
             st.subheader("📊 Intelligente Priorisierung")
             st.write("Automatische Gewichtung nach Wichtigkeit und individuellem Schwierigkeitsgrad")
 
-    with feature_cols1[1]:
-        container = st.container(border=True)
-        with container:
+        with feature_cols1[1]:
             st.subheader("🔄 Spaced Repetition")
             st.write("Wissenschaftlich optimierte Wiederholungsintervalle für besseres Behalten")
 
-    with feature_cols1[2]:
-        container = st.container(border=True)
-        with container:
+        with feature_cols1[2]:
             st.subheader("📱 Kalenderansicht")
             st.write("Übersichtliche Darstellung mit farblicher Kennzeichnung der Fächer")
 
-    # Zweite Zeile mit Features
-    with feature_cols2[0]:
-        container = st.container(border=True)
-        with container:
+        # Zweite Zeile mit Features
+        with feature_cols2[0]:
             st.subheader("📈 Fortschrittsübersicht")
             st.write("Tägliche und wöchentliche Fortschrittskontrolle auf einen Blick")
 
-    with feature_cols2[1]:
-        container = st.container(border=True)
-        with container:
+        with feature_cols2[1]:
             st.subheader("⚙️ Anpassbarkeit")
             st.write("Berücksichtigung deiner Tagesroutine und Lernpräferenzen")
 
-    with feature_cols2[2]:
-        container = st.container(border=True)
-        with container:
+        with feature_cols2[2]:
             st.subheader("📤 Export-Funktion")
             st.write("Lernplan direkt in deinen digitalen Kalender importieren")
 
