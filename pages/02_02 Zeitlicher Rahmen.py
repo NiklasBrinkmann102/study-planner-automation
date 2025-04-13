@@ -25,6 +25,10 @@ if "learning_start_date" not in st.session_state:
 if "learning_type" not in st.session_state:
     st.session_state.learning_type = "Deep-Work"
 
+if 'daily_repeat_time' not in st.session_state:
+    st.session_state.daily_repeat_time = 30
+
+
 # Callback-Funktionen
 def update_selected_days():
     st.session_state.selected_days = [day for day in ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'] 
@@ -77,9 +81,7 @@ def save_learning_plan():
         
         st.session_state.info_box = f"""
         ### 🧾 Deine Planung im Überblick
-        - 📅 **Ausgewählte Tage:** {', '.join([day_full_names[d] for d in st.session_state.selected_days])}
         - 📊 **Gesamtzeit pro Woche:** {total:.1f} h
-        - 📈 **Ø Lernzeit pro Tag:** {avg:.1f} h
         """
 
     st.session_state.df_plan = pd.DataFrame(list(lernplan.items()), columns=["Tag", "Lernzeit (h)"])
@@ -145,7 +147,7 @@ with col2:
 
 
 # Lernzeit-Art auswählen
-st.write("#### Wie möchtest du deine Lernzeit einteilen?")
+st.write("#### Wieviele Stunden möchtest du Lernen?")
 container = st.container(border=True)
 container.radio(
     "Wähle deinen Lernstunden pro Tag:",
@@ -187,17 +189,42 @@ else:
                 format="%.1f",
                 on_change=make_callback()
             )
-            
+
+# if df_exam.Kategorie.unique() any is "Anki" or Sprache
+   
+container = st.container(border=True)
+if "df_exam" in st.session_state and not st.session_state.df_exam.empty:
+    if any(st.session_state.df_exam["Kategorie"].isin(["Anki", "Sprache"])):
+        st.write("#### Tägliche Wiederholzeit festlegen")
+        st.caption('Da du bei der Fächerwahl Fächer der Kategorien "Anki" oder "Sprache" ausgewählt hast, kannst du hier die tägliche Wiederholzeit festlegen.')
+        repeat_container = st.container(border=True)
+        repeat_time = repeat_container.slider(
+        "Wie viele Minuten möchtest du täglich für Wiederholungen (Anki/Sprache) einplanen?",
+        min_value=0,
+        max_value=120,
+        value=30,
+        step=5,
+        key="repeat_time_slider"  # Different key for the widget
+        )
+    else:
+        repeat_time = 0
+
+# Now you can safely store this in a different session state variable
+st.session_state.daily_repeat_time = repeat_time
+        
+
+save_container = st.container()  # New container for the save button
+
 # Lernplan speichern
 if "plan_saved" not in st.session_state:
     st.session_state.plan_saved = False
     
-if container.button("✅ Speichern", on_click=save_learning_plan):
-    pass
+if save_container.button("✅ Speichern", on_click=save_learning_plan):
+    save_container.success("Dein Lernplan wurde gespeichert!")
 
-if st.session_state.plan_saved:
-    container.success("Dein Lernplan wurde gespeichert!")
-    st.info(st.session_state.info_box)
+# if st.session_state.plan_saved:
+#     # container.success("Dein Lernplan wurde gespeichert!")
+#     st.info(st.session_state.info_box)
 
 
 with st.sidebar:

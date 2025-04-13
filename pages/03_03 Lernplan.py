@@ -40,6 +40,19 @@ if "df_studyplan_clean" in st.session_state and not st.session_state.df_studypla
     # st.dataframe(st.session_state.df_plan, use_container_width=True)
     df_studyplan_clean = st.session_state.df_studyplan_clean
 
+
+with st.sidebar:
+    social_media_links = [
+        "https://www.youtube.com/@NiklasBrinkmann1",
+        "https://www.linkedin.com/in/brinkmann-niklas/",
+        "https://www.niklasbrinkmann.de"
+    ]
+    social_media_icons = SocialMediaIcons(social_media_links)
+    social_media_icons.render()
+
+if "daily_repeat_time" in st.session_state:
+    daily_repeat_time = st.session_state.daily_repeat_time
+
 ## Learntype auslesen und von Auswahl in Stunden umwandeln
 if "learning_type" in st.session_state:
     learning_type = st.session_state.learning_type
@@ -86,7 +99,7 @@ df_studyplan, stats = generate_complete_study_plan(df_exam, df_plan, settings = 
             'min_days_between': 2,
             'max_consecutive_days': 2,
             'dedicated_days_before_exam': 3,
-            'wiederhol_dauer': 0.25,
+            'wiederhol_dauer': round(daily_repeat_time/60,1),
         })
 # df_studyplan = lernplan_daten_aufbereiten(df_studyplan)
 
@@ -299,7 +312,7 @@ with tab1:
             st.subheader("Gesamtübersicht")
             # Prüfen, ob die Spalte existiert
             if "Lernzeit (h)" in df_clean.columns:
-                total_hours = df_clean["Lernzeit (h)"].sum()
+                total_hours = df_clean[['Dauer 1', 'Dauer 2', 'Dauer 4']].sum().sum()
                 st.metric("Gesamte Lernzeit", f"{total_hours:.1f} Stunden")
             
             # Stunden pro Fach dynamisch berechnen
@@ -747,11 +760,3 @@ with tab3:
     
 #------------------
 
-with st.sidebar:
-    social_media_links = [
-        "https://www.youtube.com/@NiklasBrinkmann1",
-        "https://www.linkedin.com/in/brinkmann-niklas/",
-        "https://www.niklasbrinkmann.de"
-    ]
-    social_media_icons = SocialMediaIcons(social_media_links)
-    social_media_icons.render()
