@@ -726,10 +726,9 @@ with tab3:
         """)
 
     # # Excel-Export vorbereiten
-    # df_xlsx = to_excel(df_studyplan_clean)
 
     # st.divider()
-
+    
     # # Excel-Export Sektion
     # st.subheader("Excel (.xlsx)")
     # col1, col2 = st.columns([1, 5])
