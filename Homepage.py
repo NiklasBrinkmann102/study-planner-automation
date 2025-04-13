@@ -159,5 +159,8 @@ def homepage():
         social_media_icons = SocialMediaIcons(social_media_links)
         social_media_icons.render()
 
+
+
+
 if __name__ == "__main__":
     homepage()

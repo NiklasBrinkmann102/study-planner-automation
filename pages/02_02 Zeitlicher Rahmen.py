@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import datetime
-from st_social_media_links import SocialMediaIcons
+# from st_social_media_links import SocialMediaIcons
 
 st.set_page_config(layout="wide")
 st.title('🕒 Deine Lernzeiten')
@@ -200,17 +200,11 @@ if st.session_state.plan_saved:
     st.info(st.session_state.info_box)
 
 
-with st.sidebar:
-        social_media_links = [
-            "https://www.youtube.com/@NiklasBrinkmann1",
-            "https://www.linkedin.com/in/brinkmann-niklas/",
-            "https://www.niklasbrinkmann.de"
-        ]
-        social_media_icons = SocialMediaIcons(social_media_links)
-        social_media_icons.render()
-
-# Tabelle anzeigen
-# if not st.session_state.df_plan.empty:
-    # st.dataframe(st.session_state.df_plan, use_container_width=True)
-
-# st.error('Alles ausgefüllt? Dann geht's weiter zum nächsten Schritt 👉')
+# with st.sidebar:
+#         social_media_links = [
+#             "https://www.youtube.com/@NiklasBrinkmann1",
+#             "https://www.linkedin.com/in/brinkmann-niklas/",
+#             "https://www.niklasbrinkmann.de"
+#         ]
+#         social_media_icons = SocialMediaIcons(social_media_links)
+#         social_media_icons.render()

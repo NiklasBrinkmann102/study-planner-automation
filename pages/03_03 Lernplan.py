@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 import re
 import uuid
 import base64
-from st_social_media_links import SocialMediaIcons
+# from st_social_media_links import SocialMediaIcons
 
 st.set_page_config(layout="wide")
 st.title("📅 Überblick für deinen Lernplan")
@@ -742,13 +742,16 @@ with tab3:
     #     Die Tabelle enthält alle geplanten Lerneinheiten und Prüfungen im übersichtlichen Format.
     #     """)
     
-    # st.divider()
 
-with st.sidebar:
-    social_media_links = [
-        "https://www.youtube.com/@NiklasBrinkmann1",
-        "https://www.linkedin.com/in/brinkmann-niklas/",
-        "https://www.niklasbrinkmann.de"
-    ]
-    social_media_icons = SocialMediaIcons(social_media_links)
-    social_media_icons.render()
+    # st.divider()
+    
+#------------------
+
+# with st.sidebar:
+#     social_media_links = [
+#         "https://www.youtube.com/@NiklasBrinkmann1",
+#         "https://www.linkedin.com/in/brinkmann-niklas/",
+#         "https://www.niklasbrinkmann.de"
+#     ]
+#     social_media_icons = SocialMediaIcons(social_media_links)
+#     social_media_icons.render()
