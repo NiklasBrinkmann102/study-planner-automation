@@ -54,23 +54,6 @@ For a visual representation of the data flow, please see the `Image_Workflow.png
 
 ---
 
-## 🗂 Folder Structure
-Use code with caution.
-Markdown
-study-planner-automation/
-├── pages/ # Streamlit convention for multi-page app pages
-│ ├── 01_01 Prüfungstermine.py # Input: Exam dates and difficulty
-│ ├── 02_02 Zeitlicher Rahmen.py # Input: Available days/times for learning
-│ ├── 03_03 Lernplan.py # Output: Study plan in 3 tabs
-│ └── 00_Archiv/ # Archived/old modules (optional)
-├── Homepage.py # Main start page of the Streamlit app
-├── my_func.py # 🧠 Core algorithm: creates the actual study plan
-├── Image_Workflow.png # Project workflow diagram
-├── LICENSE.txt # Project License file
-├── requirements.txt # Python dependencies
-└── pycache/ # Cached files (auto-generated, often ignored by git)
-
----
 
 ## ⚙️ Installation
 
