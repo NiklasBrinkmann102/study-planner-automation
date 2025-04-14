@@ -115,8 +115,11 @@ def homepage():
             st.subheader("📤 Export-Funktion")
             st.write("Lernplan direkt in deinen digitalen Kalender importieren")
 
-
-
+    st.divider()
+    st.write("## 📱 Hinweis")
+    container = st.container(border=True)
+    with container:
+        st.write("Die App funktioniert aktuell am besten auf dem Laptop oder größeren Tablet-Bildschirmen – sie ist nicht für kleine Smartphone-Displays optimiert.")
 
     with st.sidebar:
         social_media_links = [
