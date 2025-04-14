@@ -11,8 +11,8 @@ You may not:
 - Reproduce, distribute, or publish this code or its derivatives publicly without explicit written permission from the author.
 
 Attribution requirement:
-If you use or adapt any part of this code, you must credit the author clearly by linking to:
-- GitHub: https://github.com/NiklasBrinkmann
+If you use or adapt any part of this code, you must credit the author clearly by linking to either:
 - LinkedIn: https://www.linkedin.com/in/niklas-brinkmann/
+- Youtube: https://www.youtube.com/channel/UC67ytVA5Imo8CF_ST0G6lqQ
 
 ALL RIGHTS RESERVED.
