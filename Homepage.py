@@ -39,24 +39,49 @@ def homepage():
     st.header("So funktioniert der Prüfungsplaner")
     container = st.container(border=True)
     with container:
-        video_cols = st.columns([3, 1])
+
         
-        with video_cols[0]:
+
             # st.image("Image_Workflow.png")
-            st.video("https://youtu.be/WnzZktzy958")
+        st.video("https://youtu.be/WnzZktzy958")
+    container = st.container(border=True)
+    with container:
+        st.container().subheader("In 3 einfachen Schritten:")
+
+        steps_container = st.container()
         
-        with video_cols[1]:
-            st.container().subheader("In 3 einfachen Schritten:")
-            
-            steps_container = st.container()
-            steps_container.write("1️⃣ Prüfungstermine eingeben")
-            steps_container.write("2️⃣ Lernpräferenzen festlegen")
-            steps_container.write("3️⃣ Personalisierten Plan erhalten")
+        steps_container.markdown("### 1️⃣ Prüfungen eintragen")
+        steps_container.write(
+            "Lege deine Prüfungen mit wenigen Klicks an: gib Fachnamen, "
+            "Kategorie (z. B. Theorie, Sprache, Anki), Schwierigkeitsgrad, "
+            "Prüfungsdatum und das gewünschte Startdatum fürs Lernen ein. "
+            "Der Schwierigkeitsgrad hilft dabei, die Lernzeit automatisch sinnvoll zu gewichten."
+            "Anki und Sprache als Kategorie sorgen für tägliche Wiederholungen"
+        )
+
+        steps_container.markdown("### 2️⃣ Lernpräferenzen festlegen")
+        steps_container.write(
+            "Bestimme, wann und wie du lernen möchtest. Wähle deinen Lernstil "
+            "(z. B. Deep Work = 1 Fach pro Tag, oder Balanced = bis zu 3 Fächer pro Tag) "
+            "und gib an, wie viele Stunden du täglich investieren kannst – entweder pauschal oder je Tag individuell. "
+            "Wenn du ein Fach mit Wiederholungsbedarf hast, z. B. Sprachen oder Anki, kannst du hier auch "
+            "tägliche Wiederholzeiten festlegen."
+        )
+
+        steps_container.markdown("### 3️⃣ Lernplan erhalten")
+        steps_container.write(
+            "Der Planer generiert deinen persönlichen Lernplan – mit klarer Übersicht, "
+            "welches Fach du wann und wie lange lernen sollst. "
+            "Den fertigen Plan kannst du als Tabelle exportieren oder als .ics-Datei in deinen Kalender "
+            "(Outlook, Apple, Google etc.) integrieren. "
+            "So hast du deinen Lernplan immer im Blick – ganz automatisch, individuell und kostenlos."
+        )
+
             
             # st.button("Jetzt starten", type="primary", use_container_width=True)
         
 
-    st.header("Funktionen des Prüfungsplaners")
+    st.header("Funktionen auf einen Blick")
     container = st.container(border=True)
     with container:
 
