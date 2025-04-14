@@ -39,11 +39,11 @@ def homepage():
     st.header("So funktioniert der Prüfungsplaner")
     container = st.container(border=True)
     with container:
-        video_cols = st.columns([2, 3])
+        video_cols = st.columns([3, 1])
         
         with video_cols[0]:
-            st.image("Image_Workflow.png")
-            # st.video("https://www.youtube.com/watch?v=AbRlFdrz09s")
+            # st.image("Image_Workflow.png")
+            st.video("https://youtu.be/WnzZktzy958")
         
         with video_cols[1]:
             st.container().subheader("In 3 einfachen Schritten:")
@@ -79,8 +79,8 @@ def homepage():
 
         # Zweite Zeile mit Features
         with feature_cols2[0]:
-            st.subheader("📈 Fortschrittsübersicht")
-            st.write("Tägliche und wöchentliche Fortschrittskontrolle auf einen Blick")
+            st.subheader("📈 Statistik")
+            st.write("Übersicht zu Lernstunden und Tagen  bis zur Prüfung")
 
         with feature_cols2[1]:
             st.subheader("⚙️ Anpassbarkeit")
