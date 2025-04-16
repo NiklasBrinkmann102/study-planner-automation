@@ -40,3 +40,6 @@ The **core logic** resides in `my_func.py`. This script contains the algorithm r
 -   Distributing study time efficiently across available slots.
 -   Adapting the plan based on the total available time versus the estimated required time.
 
+
+## Improvements
+- [] Kalender on page 3 show, the right month (now it always starts with the at the moment month, but should start with first learning day)
