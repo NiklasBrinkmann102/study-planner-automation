@@ -456,18 +456,40 @@ with tab2:
     def style_pruefung(val):
         """Wenn nicht None, dann rot einfärben"""
         return 'color: red; font-weight: bold;' if pd.notnull(val) and str(val).strip() != 'None' else ''
-
+    
     def style_df(df):
         # Index zurücksetzen für klare Anzeige
         df = df.reset_index(drop=True)
 
-        styled = df.style.applymap(style_pruefung, subset=['Prüfung'])
-
         # Datum schöner formatieren (optional)
-        df['Datum'] = pd.to_datetime(df['Datum']).dt.strftime('%d.%m.%Y')
+        df['Datum'] = pd.to_datetime(df['Datum'], errors='coerce').dt.strftime('%d.%m.%Y')
+
+        # Fehlende Werte durch leeren String ersetzen
+        df = df.fillna("")
+
+        # Jetzt styling anwenden – wichtig: nach fillna!
+        styled = df.style.applymap(style_pruefung, subset=['Prüfung'])
 
         # Stilisierte Tabelle anzeigen
         st.dataframe(styled, use_container_width=True, height=800)
+
+        return styled
+
+
+    # def style_df(df):
+    #     # Index zurücksetzen für klare Anzeige
+    #     df = df.reset_index(drop=True)
+
+    #     styled = df.style.applymap(style_pruefung, subset=['Prüfung'])
+
+    #     # Datum schöner formatieren (optional)
+    #     df['Datum'] = pd.to_datetime(df['Datum']).dt.strftime('%d.%m.%Y')
+    #     df = df.fillna("")
+
+
+
+    #     # Stilisierte Tabelle anzeigen
+    #     st.dataframe(styled, use_container_width=True, height=800)
 
 
     styled_table = style_df(df_studyplan_clean)
