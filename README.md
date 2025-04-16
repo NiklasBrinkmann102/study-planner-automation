@@ -42,7 +42,5 @@ The **core logic** resides in `my_func.py`. This script contains the algorithm r
 
 
 ## Improvements
-- [] Kalender on page 3 show, the right month (now it always starts with the at the moment month, but should start with first learning day)
-- [x] #739
-- [ ] https://github.com/octo-org/octo-repo/issues/740
-- [ ] Add delight to the experience when all tasks are complete :tada:
+- [ ] Kalender on page 3 show, the right month (now it always starts with the at the moment month, but should start with first learning day)
+- [ ] Improve Algorithmus (Days before exam are offdays)
